@@ -6,13 +6,15 @@ A command line helper for Atlassian Bitbucket.
 ## Usage
 
 ```
-bb <command> [options]
+bitbucket-cli <command> [options]
 ```
 
-bb command take some following subcommands:
+bitbucket-cli command take some following subcommands:
 
 ```
-pull-request    
+browse          Open URL of a repository by browser
+pull-request
+version         Print bitbucket-cli version and quit
 ```
 
 ## Install
@@ -20,7 +22,7 @@ pull-request
 To install, use `go get`:
 
 ```bash
-$ go get -d github.com/wiro34/bitbucket-cli
+$ go get github.com/wiro34/bitbucket-cli
 ```
 
 ## Contribution
