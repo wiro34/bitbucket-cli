@@ -22,8 +22,6 @@ func LoadRepositoryInfo() (*RepositoryInfo, error) {
 		return nil, err
 	}
 
-	url = "ssh://git@git.so-net.co.jp:7999/sandbox/pullrequestflowtest.git"
-
 	result := rexp.FindAllStringSubmatch(url, -1)
 	if len(result) != 1 || len(result[0]) != 6 {
 		return nil, errors.New("This repository may not be the one of Bitbucket.")

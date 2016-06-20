@@ -9,4 +9,5 @@ import (
 type Meta struct {
 	Ui             cli.Ui
 	RepositoryInfo *config.RepositoryInfo
+	Config         *config.Config
 }
