@@ -10,7 +10,18 @@ import (
 )
 
 func Run(args []string) int {
-	config.LoadConfig()
+	conf, err := config.LoadConfig()
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+	}
+
+	if conf == nil {
+		conf, err = config.ResetConfig()
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			return 1
+		}
+	}
 
 	ri, err := config.LoadRepositoryInfo()
 	if err != nil {
@@ -31,6 +42,7 @@ func Run(args []string) int {
 			},
 		},
 		RepositoryInfo: ri,
+		Config:         conf,
 	}
 
 	return RunCustom(args, Commands(meta))
